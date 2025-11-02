@@ -33,11 +33,6 @@
     box-sizing: border-box;
 }
 
-/* Override the transition for specific elements that shouldn't have it */
-img, svg, canvas, video {
-    transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
 html {
     scroll-behavior: smooth;
     font-size: 16px;
@@ -45,15 +40,6 @@ html {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
-}
-
-* {
-    /* Smooth transitions for all interactive elements */
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-                box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -380,40 +366,19 @@ img {
 .welcome-section {
     /* Fit the hero neatly inside the viewport while accounting for fixed nav */
     min-height: 100vh;
-    max-height: 100vh;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     text-align: center;
     position: relative;
-    overflow-y: auto;
     overflow-x: hidden;
     /* Reduced padding for better width utilization */
-    padding: 80px 1.5% 20px;
+    padding: 80px 1.5% 40px;
     box-sizing: border-box;
     /* Ensure proper rendering on all devices */
     -webkit-overflow-scrolling: touch;
-    will-change: scroll-position;
-    /* Smooth scrolling */
-    scroll-behavior: smooth;
 }
 
-.welcome-section::-webkit-scrollbar {
-    width: 6px;
-}
-
-.welcome-section::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-.welcome-section::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 3px;
-}
-
-.welcome-section::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
-}
 
 /* Animated Background */
 .hero-background {
@@ -565,7 +530,7 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 /* Profile Container with Glow */
@@ -1899,9 +1864,7 @@ footer .fa-heart {
     .welcome-section {
         /* On shorter mobile viewports, further compress spacing */
         min-height: 100vh;
-        max-height: 100vh;
-        padding: 70px 2% 20px;
-        overflow-y: auto;
+        padding: 70px 2% 30px;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
         /* Ensure content is always visible */
@@ -2347,9 +2310,7 @@ footer .fa-heart {
 @media (max-width: 768px) and (orientation: landscape) {
     .welcome-section {
         min-height: 100vh;
-        max-height: 100vh;
-        padding: 60px 15px 15px;
-        overflow-y: auto;
+        padding: 60px 2% 20px;
     }
 
     /* Ensure logos visible in landscape */
@@ -2419,8 +2380,7 @@ footer .fa-heart {
 /* Extra small screens */
 @media (max-height: 600px) {
     .welcome-section {
-        padding: 60px 15px 15px;
-        overflow-y: auto;
+        padding: 60px 2% 20px;
         -webkit-overflow-scrolling: touch;
     }
 
