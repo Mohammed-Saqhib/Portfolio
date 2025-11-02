@@ -3,9 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
   <title>Home | Mohammed Saqhib - Data Professional</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="preloader.css">
+  <link rel="stylesheet" href="styles.css?v=2.0">
+  <link rel="stylesheet" href="preloader.css?v=2.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
@@ -155,24 +158,161 @@
 <main id="main-content">
 
   <section id="welcome-section" class="welcome-section section">
+    <!-- Animated Background -->
+    <div class="hero-background">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <canvas id="particles-canvas"></canvas>
+    </div>
+
+    <!-- Floating Tech Stack Logos -->
+    <div class="floating-logos">
+      <div class="floating-logo logo-1"><img src="photos/python.svg" alt="Python"></div>
+      <div class="floating-logo logo-2"><img src="photos/Power Bi.png" alt="Power BI"></div>
+      <div class="floating-logo logo-3"><img src="photos/Machine Learning.png" alt="ML"></div>
+      <div class="floating-logo logo-4"><img src="photos/azure-48.png" alt="Azure"></div>
+      <div class="floating-logo logo-5"><img src="photos/aws-50.png" alt="AWS"></div>
+      <div class="floating-logo logo-6"><img src="photos/Sql.png" alt="SQL"></div>
+      <div class="floating-logo logo-7"><img src="photos/Deep Learning.png" alt="Deep Learning"></div>
+      <div class="floating-logo logo-8"><img src="photos/excel-50.png" alt="Excel"></div>
+      <div class="floating-logo logo-9"><img src="photos/tableau-software.svg" alt="Tableau"></div>
+      <div class="floating-logo logo-10"><img src="photos/mongodb.png" alt="MongoDB"></div>
+      <div class="floating-logo logo-11"><img src="photos/jupyter.svg" alt="Jupyter"></div>
+      <div class="floating-logo logo-12"><img src="photos/reactJs.png" alt="React"></div>
+      <div class="floating-logo logo-13"><img src="photos/javascript.png" alt="JavaScript"></div>
+      <div class="floating-logo logo-14"><img src="photos/html5.png" alt="HTML5"></div>
+      <div class="floating-logo logo-15"><img src="photos/css3.png" alt="CSS3"></div>
+      <div class="floating-logo logo-16"><img src="photos/bootstrap.png" alt="Bootstrap"></div>
+    </div>
+
+    <!-- Main Hero Content -->
     <div class="hero-content">
-      <img class="pro hero-img" src="photos/abk.png" alt="Mohammed Saqhib" data-cursor-hover>
-      <h1 class="hero-title">Hi, I'm Saqhib</h1>
-      <p class="hero-subtitle">
-        I explore and build with data.
-      </p>
-      <p class="hero-tagline">Aspiring Data Professional | Based in Bengaluru</p>
-      <span class="text heading dynamic-text"></span>
-      
-      <div class="cta-buttons">
-        <a href="#projects" class="cta-primary btn" data-cursor-hover>View Projects</a>
-        <a href="3d-portfolio.html" class="cta-secondary btn" data-cursor-hover>🚀 Explore 3D Portfolio</a>
+      <div class="hero-profile-container">
+        <div class="profile-glow"></div>
+        <img class="pro hero-img" src="photos/abk.png" alt="Mohammed Saqhib" data-cursor-hover>
       </div>
 
-      <div class="social-links">
-        <a href="http://www.linkedin.com/in/mohammed-saqhib-87b8b325a" target="_blank" class="social-link" data-cursor-hover><i class="fab fa-linkedin"></i></a>  
-        <a href="https://github.com/Mohammed-Saqhib" target="_blank" class="social-link" data-cursor-hover><i class="fab fa-github"></i></a>
-        <a href="mailto:msaqhib76@gmail.com" class="social-link" data-cursor-hover><i class="fas fa-envelope"></i></a>
+      <div class="hero-badge animate-slide-up">
+        <i class="fas fa-map-marker-alt"></i> Bengaluru, India
+      </div>
+      
+      <h1 class="hero-title animate-fade-in">Mohammed Saqhib</h1>
+      <div class="hero-subtitle-container">
+        <span class="text heading dynamic-text"></span>
+      </div>
+      <p class="hero-description animate-fade-in-delay">
+        Transforming data into actionable insights | Building intelligent solutions with AI & ML
+      </p>
+
+      <!-- Stats Showcase -->
+      <div class="hero-stats animate-slide-up-delay">
+        <div class="stat-item">
+          <div class="stat-number" data-count="17">0</div>
+          <div class="stat-label">Projects</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="4">0</div>
+          <div class="stat-label">Internships</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="12">0</div>
+          <div class="stat-label">Skills</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number" data-count="3">0</div>
+          <div class="stat-label">Years</div>
+        </div>
+      </div>
+
+      <!-- Featured Projects Carousel -->
+      <div class="hero-projects-showcase">
+        <h3 class="showcase-title">Featured Work</h3>
+        <div class="projects-carousel">
+          <div class="carousel-track">
+            <div class="carousel-card">
+              <img src="Cover Page/Advanced-Stock-Prediction-Analysis-Dashboard.webp.png" alt="Stock Prediction">
+              <span class="carousel-card-title">Stock Prediction Dashboard</span>
+            </div>
+            <div class="carousel-card">
+              <img src="Cover Page/Formula1-DataHub.png" alt="Formula1 DataHub">
+              <span class="carousel-card-title">Formula1 DataHub</span>
+            </div>
+            <div class="carousel-card">
+              <img src="Cover Page/fraud-detection-system.png" alt="Fraud Detection">
+              <span class="carousel-card-title">Fraud Detection System</span>
+            </div>
+            <div class="carousel-card">
+              <img src="Cover Page/Facial-Recognition-Attendance-Management-System.png" alt="Face Recognition">
+              <span class="carousel-card-title">Facial Recognition System</span>
+            </div>
+            <div class="carousel-card">
+              <img src="Cover Page/TTS-phoneme-model.png" alt="TTS Model">
+              <span class="carousel-card-title">TTS Phoneme Model</span>
+            </div>
+            <div class="carousel-card">
+              <img src="Cover Page/kritya-fashion-demo.png" alt="Kritya Fashion">
+              <span class="carousel-card-title">Kritya Fashion</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Company/Experience Highlights -->
+      <div class="experience-highlights">
+        <div class="experience-marquee">
+          <div class="marquee-content">
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Quantiota (ML Intern)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> COSMIC365.AI (Associate Intern)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Singularium Technologies (Data Mapping)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Ioncure Tech (Data Science & AI)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Quantiota (ML Intern)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> COSMIC365.AI (Associate Intern)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Singularium Technologies (Data Mapping)</span>
+            <span class="experience-item"><i class="fas fa-briefcase"></i> Ioncure Tech (Data Science & AI)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div class="cta-buttons animate-fade-in-delay">
+        <a href="#projects" class="cta-primary btn btn-glow" data-cursor-hover>
+          <span>Explore My Work</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="3d-portfolio.html" class="cta-secondary btn" data-cursor-hover>
+          <i class="fas fa-cube"></i> 3D Portfolio
+        </a>
+        <a href="#contact" class="cta-outline btn" data-cursor-hover>
+          <i class="fas fa-envelope"></i> Get In Touch
+        </a>
+      </div>
+
+      <!-- Social Links -->
+      <div class="social-links animate-fade-in-delay">
+        <a href="http://www.linkedin.com/in/mohammed-saqhib-87b8b325a" target="_blank" class="social-link" data-cursor-hover>
+          <i class="fab fa-linkedin"></i>
+          <span class="social-tooltip">LinkedIn</span>
+        </a>  
+        <a href="https://github.com/Mohammed-Saqhib" target="_blank" class="social-link" data-cursor-hover>
+          <i class="fab fa-github"></i>
+          <span class="social-tooltip">GitHub</span>
+        </a>
+        <a href="mailto:msaqhib76@gmail.com" class="social-link" data-cursor-hover>
+          <i class="fas fa-envelope"></i>
+          <span class="social-tooltip">Email</span>
+        </a>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <div class="scroll-indicator">
+        <div class="mouse">
+          <div class="mouse-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
       </div>
     </div>
   </section>
@@ -559,7 +699,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script src="preloader.js"></script>
-<script src="script.js"></script>
+<script src="preloader.js?v=2.0"></script>
+<script src="script.js?v=2.0"></script>
 </body>
 </html>

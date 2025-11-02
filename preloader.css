@@ -651,6 +651,39 @@ body.loaded #main-content {
   }
 }
 
+/* Short-height screens (e.g., 1366x768 laptops) */
+@media (max-height: 820px) {
+  /* Start content a bit higher and reduce visual density */
+  .preloader {
+    justify-content: flex-start;
+    padding-top: 24px;
+  }
+
+  .preloader-content {
+    padding-top: 0.5rem;
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+
+  .preloader-text { margin-bottom: 2.5rem; }
+  .preloader-highlights { gap: 1rem; margin-bottom: 1.5rem; padding: 0 1rem; }
+  .preloader-projects-title { margin-bottom: 1rem; }
+  .preloader-projects-grid { gap: 1rem; padding: 0 1rem; }
+
+  .preloader-name { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  .preloader-title { font-size: 1.2rem; }
+  .preloader-profile-image { width: 150px; height: 150px; }
+
+  .preloader-progress { bottom: 1.25rem; }
+  .preloader-skip { bottom: 1.5rem; right: 1.5rem; }
+}
+
+/* Extra compact for very short heights */
+@media (max-height: 700px) {
+  .preloader-content { transform: scale(0.82); }
+  .preloader-projects-title { display: none; }
+}
+
 @media (max-width: 480px) {
   .preloader-name {
     font-size: 2rem;
