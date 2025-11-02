@@ -36,6 +36,10 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    /* Enhanced smooth scrolling */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 body {
@@ -45,6 +49,10 @@ body {
     line-height: 1.6;
     transition: background-color var(--transition-speed), color var(--transition-speed);
     cursor: none; /* Hide default cursor */
+    /* Enhanced smoothness */
+    overscroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 
 a {
@@ -130,13 +138,14 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-    padding: 1rem 5%;
+    padding: 1rem clamp(15px, 4vw, 5%);
     background: rgba(var(--bg-color-rgb), 0.85);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     z-index: 1000;
     border-bottom: 1px solid var(--border-color);
     transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
 .nav-container {
@@ -227,9 +236,11 @@ img {
 
 /* --- Layout & Sections --- */
 #main-content {
-    max-width: 1200px;
+    max-width: 100%;
+    width: 100%;
     margin: 0 auto;
-    padding: 80px 5% 0;
+    padding: 80px clamp(15px, 4vw, 5%) 0;
+    box-sizing: border-box;
 }
 
 .section {
@@ -348,12 +359,13 @@ img {
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
-    /* Reduced vertical padding to fit within viewport */
-    padding: 80px 20px 20px;
+    /* Responsive padding that adapts to screen size */
+    padding: clamp(70px, 8vh, 80px) clamp(15px, 3vw, 40px) clamp(15px, 3vh, 30px);
     box-sizing: border-box;
     /* Ensure proper rendering on all devices */
     -webkit-overflow-scrolling: touch;
     will-change: scroll-position;
+    width: 100%;
 }
 
 .welcome-section::-webkit-scrollbar {
@@ -511,11 +523,11 @@ img {
 
 /* Hero Content */
 .hero-content {
-    max-width: 1100px;
+    max-width: 100%;
+    width: 100%;
     z-index: 2;
     position: relative;
-    width: 100%;
-    padding: 1rem;
+    padding: clamp(0.5rem, 2vw, 1.5rem) clamp(15px, 4vw, 2rem);
     box-sizing: border-box;
     margin: 0 auto;
     display: flex;
@@ -613,10 +625,13 @@ img {
     color: var(--text-color);
     opacity: 0.8;
     margin-bottom: 1.5rem;
-    max-width: 700px;
+    max-width: min(90%, 700px);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     line-height: 1.5;
+    padding: 0 clamp(10px, 2vw, 20px);
+    box-sizing: border-box;
 }
 
 /* Animated Stats */
@@ -624,17 +639,19 @@ img {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    gap: clamp(0.8rem, 2vw, 1.5rem);
     margin-bottom: 1.5rem;
-    padding: 1rem 1.5rem;
+    padding: clamp(0.8rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     border: 1px solid var(--border-color);
     border-radius: 15px;
-    max-width: 600px;
+    max-width: min(95%, 600px);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 }
 
 .stat-item {
@@ -670,6 +687,10 @@ img {
 .hero-projects-showcase {
     margin: 1rem 0;
     display: block;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 clamp(10px, 3vw, 20px);
 }
 
 .showcase-title {
@@ -735,6 +756,10 @@ img {
 .experience-highlights {
     margin: 1rem 0;
     overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 0 clamp(10px, 3vw, 20px);
 }
 
 .experience-marquee {
@@ -775,9 +800,15 @@ img {
 .cta-buttons {
     margin-bottom: 1.5rem;
     display: flex;
-    gap: 0.8rem;
+    gap: clamp(0.6rem, 2vw, 0.8rem);
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
+    max-width: min(95%, 600px);
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 clamp(10px, 3vw, 20px);
+    box-sizing: border-box;
 }
 
 .btn-glow {
@@ -805,8 +836,12 @@ img {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: clamp(0.8rem, 2vw, 1rem);
     margin-bottom: 1rem;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 0 clamp(10px, 2vw, 20px);
+    box-sizing: border-box;
 }
 
 .social-link {
@@ -1768,6 +1803,10 @@ footer .fa-heart {
 
 /* --- Responsive Design --- */
 @media (max-width: 992px) {
+    #main-content {
+        padding: 80px clamp(15px, 4vw, 5%) 0;
+    }
+
     .about-content {
         flex-direction: column;
         text-align: center;
@@ -1777,40 +1816,43 @@ footer .fa-heart {
         margin-bottom: 2rem;
     }
     .hero-title {
-        font-size: 3.5rem;
+        font-size: clamp(2.5rem, 6vw, 3.5rem);
     }
     .projects-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 1.5rem;
         justify-items: center;
+        padding: 0 clamp(10px, 3vw, 20px);
     }
     /* Education Section Medium Screens */
     .education-timeline {
-        max-width: 600px;
+        max-width: min(95%, 600px);
+        padding: 0 clamp(15px, 4vw, 20px);
     }
     
     .education-card {
-        padding: 2rem;
+        padding: clamp(1.5rem, 3vw, 2rem);
     }
 
     /* Hero Section Tablet */
     .floating-logo {
         width: 50px;
         height: 50px;
-        opacity: 0.1;
+        opacity: 0.45;
     }
 
     .hero-stats {
-        gap: 1.5rem;
-        padding: 1.5rem;
+        gap: clamp(1rem, 2vw, 1.5rem);
+        padding: clamp(1rem, 2vw, 1.5rem);
+        max-width: min(95%, 600px);
     }
 
     .stat-number {
-        font-size: 2.5rem;
+        font-size: clamp(2rem, 4vw, 2.5rem);
     }
 
     .carousel-card {
-        width: 240px;
+        width: clamp(200px, 30vw, 240px);
     }
 }
 
@@ -1823,7 +1865,7 @@ footer .fa-heart {
         /* On shorter mobile viewports, further compress spacing */
         min-height: 100vh;
         max-height: 100vh;
-        padding: 70px 15px 20px;
+        padding: clamp(60px, 10vh, 70px) clamp(10px, 4vw, 15px) clamp(15px, 3vh, 20px);
         overflow-y: auto;
         overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
@@ -1832,6 +1874,13 @@ footer .fa-heart {
         display: flex;
         align-items: flex-start;
         justify-content: center;
+        width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.5rem clamp(10px, 3vw, 1rem);
     }
 
     /* Ensure floating logos container is visible on mobile */
@@ -1878,16 +1927,22 @@ footer .fa-heart {
 
     .hero-description {
         font-size: clamp(0.85rem, 3vw, 1rem);
-        padding: 0 10px;
+        padding: 0 clamp(10px, 3vw, 20px);
         line-height: 1.5;
         margin-bottom: 1rem;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
     }
 
     .hero-stats {
         flex-wrap: wrap;
-        gap: 0.8rem;
-        padding: 1rem 0.8rem;
+        gap: clamp(0.5rem, 2vw, 0.8rem);
+        padding: clamp(0.8rem, 2vw, 1rem) clamp(0.8rem, 3vw, 1rem);
         margin-bottom: 1rem;
+        width: 95%;
+        max-width: 95%;
+        box-sizing: border-box;
     }
 
     .stat-item {
@@ -1937,16 +1992,20 @@ footer .fa-heart {
     .cta-buttons {
         flex-direction: column;
         align-items: stretch;
-        gap: 0.6rem;
-        padding: 0 15px;
+        gap: clamp(0.5rem, 2vw, 0.6rem);
+        padding: 0 clamp(10px, 3vw, 15px);
         margin-bottom: 1rem;
+        width: 95%;
+        max-width: 95%;
+        box-sizing: border-box;
     }
 
     .btn {
         width: 100%;
         max-width: 100%;
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
+        padding: clamp(0.7rem, 2vw, 0.8rem) clamp(1rem, 3vw, 1.2rem);
+        font-size: clamp(0.85rem, 2.5vw, 0.9rem);
+        box-sizing: border-box;
     }
 
     .floating-logo {
@@ -2253,8 +2312,22 @@ footer .fa-heart {
     .welcome-section {
         min-height: 100vh;
         max-height: 100vh;
-        padding: 60px 15px 15px;
+        padding: clamp(50px, 8vh, 60px) clamp(10px, 3vw, 15px) clamp(10px, 2vh, 15px);
         overflow-y: auto;
+        width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0.3rem clamp(10px, 2vw, 1rem);
+    }
+
+    .hero-description {
+        max-width: 95%;
+    }
+
+    .hero-stats {
+        max-width: 95%;
     }
 
     /* Ensure logos visible in landscape */
@@ -2308,6 +2381,23 @@ footer .fa-heart {
 
 /* Tablet and medium screen sizes */
 @media (min-width: 481px) and (max-width: 992px) {
+    .welcome-section {
+        padding: clamp(70px, 8vh, 80px) clamp(20px, 4vw, 40px) clamp(20px, 3vh, 30px);
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 1rem clamp(20px, 4vw, 2rem);
+    }
+
+    .hero-description {
+        max-width: min(90%, 700px);
+    }
+
+    .hero-stats {
+        max-width: min(95%, 600px);
+    }
+
     .floating-logo {
         opacity: 0.5;
         width: 55px;
@@ -2324,9 +2414,24 @@ footer .fa-heart {
 /* Extra small screens */
 @media (max-height: 600px) {
     .welcome-section {
-        padding: 60px 15px 15px;
+        padding: clamp(50px, 8vh, 60px) clamp(10px, 3vw, 15px) clamp(10px, 2vh, 15px);
         overflow-y: auto;
         -webkit-overflow-scrolling: touch;
+        width: 100%;
+    }
+
+    .hero-content {
+        width: 100%;
+        padding: 0.3rem clamp(10px, 3vw, 1rem);
+    }
+
+    .hero-description {
+        max-width: 95%;
+        padding: 0 clamp(10px, 2vw, 15px);
+    }
+
+    .hero-stats {
+        max-width: 95%;
     }
 
     /* Ensure logos visible on small screens */
