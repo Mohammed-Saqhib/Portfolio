@@ -226,21 +226,20 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // --- 11. Parallax Effect for Floating Logos (Disabled to prevent conflicts with CSS animations) ---
-    // Note: Parallax disabled to work with CSS float animations
-    // document.addEventListener('mousemove', (e) => {
-    //     const floatingLogos = document.querySelectorAll('.floating-logo');
-    //     const mouseX = e.clientX / window.innerWidth;
-    //     const mouseY = e.clientY / window.innerHeight;
+    // --- 11. Parallax Effect for Floating Logos ---
+    document.addEventListener('mousemove', (e) => {
+        const floatingLogos = document.querySelectorAll('.floating-logo');
+        const mouseX = e.clientX / window.innerWidth;
+        const mouseY = e.clientY / window.innerHeight;
 
-    //     floatingLogos.forEach((logo, index) => {
-    //         const speed = (index + 1) * 0.5;
-    //         const x = (mouseX - 0.5) * speed * 30;
-    //         const y = (mouseY - 0.5) * speed * 30;
+        floatingLogos.forEach((logo, index) => {
+            const speed = (index + 1) * 0.5;
+            const x = (mouseX - 0.5) * speed * 30;
+            const y = (mouseY - 0.5) * speed * 30;
             
-    //         logo.style.transform = `translate(${x}px, ${y}px)`;
-    //     });
-    // });
+            logo.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    });
 
     // --- 12. Scroll-based Navbar Background ---
     const navbar = document.getElementById('navbar');
