@@ -351,6 +351,9 @@ img {
     /* Reduced vertical padding to fit within viewport */
     padding: 80px 20px 20px;
     box-sizing: border-box;
+    /* Ensure proper rendering on all devices */
+    -webkit-overflow-scrolling: touch;
+    will-change: scroll-position;
 }
 
 .welcome-section::-webkit-scrollbar {
@@ -441,23 +444,40 @@ img {
     height: 100%;
     z-index: 1;
     pointer-events: none;
+    overflow: visible;
+    /* Ensure logos are always visible */
+    visibility: visible;
+    opacity: 1;
 }
 
 .floating-logo {
     position: absolute;
     width: 60px;
     height: 60px;
-    opacity: 0.15;
+    opacity: 0.5;
     animation: float-logo 15s infinite ease-in-out;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    padding: 8px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(88, 166, 255, 0.2);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.floating-logo:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
 }
 
 .floating-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    filter: drop-shadow(0 0 10px rgba(88, 166, 255, 0.3));
+    filter: drop-shadow(0 0 8px rgba(88, 166, 255, 0.6)) brightness(1.1);
+    mix-blend-mode: normal;
 }
 
+/* Logo positioning - spread across the viewport */
 .logo-1 { top: 15%; left: 10%; animation-delay: 0s; }
 .logo-2 { top: 25%; right: 15%; animation-delay: 2s; }
 .logo-3 { top: 60%; left: 8%; animation-delay: 4s; }
@@ -474,6 +494,13 @@ img {
 .logo-14 { top: 40%; right: 30%; animation-delay: 6.5s; }
 .logo-15 { top: 55%; left: 70%; animation-delay: 1.8s; }
 .logo-16 { top: 85%; right: 35%; animation-delay: 3.8s; }
+
+/* Ensure logos near profile picture are more visible */
+.logo-1, .logo-2, .logo-5, .logo-8, .logo-12, .logo-14 {
+    opacity: 0.55 !important;
+    background: rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5), 0 0 22px rgba(88, 166, 255, 0.3) !important;
+}
 
 @keyframes float-logo {
     0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -992,19 +1019,19 @@ img {
     @keyframes floatMobile {
         0%, 100% {
             transform: translate(0, 0) rotate(0deg);
-            opacity: 0.12;
+            opacity: 0.45;
         }
         25% {
             transform: translate(-15px, -15px) rotate(3deg);
-            opacity: 0.18;
+            opacity: 0.55;
         }
         50% {
             transform: translate(0, -20px) rotate(0deg);
-            opacity: 0.12;
+            opacity: 0.45;
         }
         75% {
             transform: translate(15px, -10px) rotate(-3deg);
-            opacity: 0.15;
+            opacity: 0.5;
         }
     }
 }
@@ -1798,7 +1825,20 @@ footer .fa-heart {
         max-height: 100vh;
         padding: 70px 15px 20px;
         overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
+        /* Ensure content is always visible */
+        position: relative;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+    }
+
+    /* Ensure floating logos container is visible on mobile */
+    .floating-logos {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
     }
 
     .hero-title {
@@ -1910,9 +1950,16 @@ footer .fa-heart {
     }
 
     .floating-logo {
-        width: 45px;
-        height: 45px;
-        opacity: 0.12;
+        width: 50px;
+        height: 50px;
+        opacity: 0.45;
+        padding: 6px;
+        background: rgba(0, 0, 0, 0.4);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 15px rgba(88, 166, 255, 0.3);
+    }
+
+    .floating-logo img {
+        filter: drop-shadow(0 0 6px rgba(88, 166, 255, 0.7)) brightness(1.2);
     }
 
     .gradient-orb {
@@ -2182,7 +2229,16 @@ footer .fa-heart {
     }
 
     .floating-logo {
-        display: none;
+        width: 40px;
+        height: 40px;
+        opacity: 0.4;
+        padding: 5px;
+        background: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6), 0 0 12px rgba(88, 166, 255, 0.4);
+    }
+
+    .floating-logo img {
+        filter: drop-shadow(0 0 5px rgba(88, 166, 255, 0.8)) brightness(1.3);
     }
 
     .orb-1, .orb-2, .orb-3 {
@@ -2199,6 +2255,18 @@ footer .fa-heart {
         max-height: 100vh;
         padding: 60px 15px 15px;
         overflow-y: auto;
+    }
+
+    /* Ensure logos visible in landscape */
+    .floating-logos {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .floating-logo {
+        opacity: 0.5;
+        width: 45px;
+        height: 45px;
     }
 
     .hero-img {
@@ -2238,10 +2306,42 @@ footer .fa-heart {
     }
 }
 
+/* Tablet and medium screen sizes */
+@media (min-width: 481px) and (max-width: 992px) {
+    .floating-logo {
+        opacity: 0.5;
+        width: 55px;
+        height: 55px;
+        background: rgba(0, 0, 0, 0.35);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 18px rgba(88, 166, 255, 0.25);
+    }
+
+    .floating-logo img {
+        filter: drop-shadow(0 0 7px rgba(88, 166, 255, 0.65)) brightness(1.15);
+    }
+}
+
 /* Extra small screens */
 @media (max-height: 600px) {
     .welcome-section {
         padding: 60px 15px 15px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Ensure logos visible on small screens */
+    .floating-logos {
+        display: block !important;
+        visibility: visible !important;
+    }
+
+    .floating-logo {
+        width: 35px;
+        height: 35px;
+        opacity: 0.45;
+        padding: 4px;
+        background: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.7), 0 0 10px rgba(88, 166, 255, 0.5);
     }
 
     .hero-img {
