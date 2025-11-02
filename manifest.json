@@ -1,0 +1,43 @@
+{
+  "name": "Mohammed Saqhib - Portfolio",
+  "short_name": "MS Portfolio",
+  "description": "Data Science and Analytics Professional Portfolio - Mohammed Saqhib",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d1117",
+  "theme_color": "#58a6ff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "photos/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "photos/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "professional"],
+  "screenshots": [],
+  "shortcuts": [
+    {
+      "name": "Projects",
+      "short_name": "Projects",
+      "description": "View featured projects",
+      "url": "/#projects",
+      "icons": [{ "src": "photos/logo.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch",
+      "url": "/#contact",
+      "icons": [{ "src": "photos/logo.png", "sizes": "96x96" }]
+    }
+  ]
+}
+
